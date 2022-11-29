@@ -26,13 +26,29 @@ export function generateInitials(firstName, lastName) {
 export function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
+  
   // Add your code here!
+  //set the pricewith VAT then calculate the VAT and add to it
+  let priceWithVAT=originalPrice;
+  if (vatRate !== 0 ){ 
+    //toFixed returns string and adds 0 to whole number - so need to parseto back to numeric type
+    priceWithVAT =  parseFloat(((vatRate / 100 * originalPrice)  + originalPrice).toFixed(2));
+
+  }
+  return  priceWithVAT ;
 }
 
 export function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
   // Add your code here!
+  let priceWithDiscount=originalPrice;
+  if (reduction!== 0 ){ 
+      priceWithDiscount =   parseFloat(Math.abs((reduction / 100 * originalPrice)  - originalPrice).toFixed(2));
+  }
+   
+  return priceWithDiscount;
+
 }
 
 export function getMiddleCharacter(str) {
