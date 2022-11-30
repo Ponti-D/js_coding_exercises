@@ -82,7 +82,7 @@ export function reverseWord(word) {
   let splitWords = word.split(""); //split words into array 
   splitWords =splitWords.reverse(); //reverse it
   splitWords = splitWords.join(""); //then join them together
-  console.log(splitWords);
+  //console.log(splitWords);
   return splitWords;
 
 }
@@ -90,6 +90,17 @@ export function reverseWord(word) {
 export function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
   // Add your code here!
+
+  //go through each element of words, reverse it then assign to new array 
+  let newWords = [];
+  for(let i = 0; i < words.length; i++){
+      let splitWord=words[i].split("");
+      let newWord = splitWord.reverse().join("");
+      //console.log(newWord);
+      newWords.push(newWord);
+  }
+  return newWords;
+
 }
 
 export function countLinuxUsers(users) {
