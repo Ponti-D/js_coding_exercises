@@ -78,6 +78,12 @@ export function getMiddleCharacter(str) {
 export function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
   // Add your code here!
+  //using built-in array methods split,reverse and join
+  let splitWords = word.split(""); //split words into array 
+  splitWords =splitWords.reverse(); //reverse it
+  splitWords = splitWords.join(""); //then join them together
+  console.log(splitWords);
+  return splitWords;
 
 }
 
