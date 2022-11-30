@@ -54,11 +54,31 @@ export function getSalePrice(originalPrice, reduction) {
 export function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
   // Add your code here!
+  let totalChars = str.length; //get the length
+    
+  //check if it's even or odd using % modulo
+  if(totalChars % 2 == 0) {
+       //if it's even get 2 from middle (char 0 based)
+       let startAt = (totalChars/2)+1;
+       //console.log(startAt);
+      // console.log(str.substring(startAt-2, startAt));
+       return str.substring(startAt-2, startAt);
+  } 
+  else { //odd 
+        //if it's odd get the middle char
+      //console.log("The number is odd." ); 
+      
+      let startAt =Math.round((totalChars/2))-1;
+     // console.log(startAt);
+     // console.log(str.substring(startAt,startAt+1));
+      return str.substring(startAt,startAt+1);
+  }
 }
 
 export function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
   // Add your code here!
+
 }
 
 export function reverseAllWords(words) {
