@@ -106,14 +106,47 @@ export function reverseAllWords(words) {
 export function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
   // Add your code here!
+  if (users === undefined) throw new Error("users is required");
+  // Add your code here!
+  let jsonUsers = JSON.stringify(users); //make it string then parse it to get objects with properties
+  let newusers=JSON.parse(jsonUsers);
+  let linuxCount=0;
+   
+  newusers.forEach(user => {
+   // console.log(user.type);
+    if(user.type=="Linux") linuxCount++; //count linux users
+  });
+  return linuxCount;
 }
 
 export function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
   // Add your code here!
+   
+  let meanScore = 0;
+  for(let i=0;i<scores.length;i++){
+    //loop the array scores add then and then devide the total with length of array 
+    meanScore+=scores[i];
+  }
+
+  return parseFloat((meanScore /= scores.length).toFixed(2));
 }
 
 export function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error("n is required");
   // Add your code here!
+  if(n % 3 === 0 && n % 5 === 0){
+    return "fizzbuzz";
+  }
+  else if(n % 5 === 0){
+    return "buzz";
+  }
+  else if(n % 3 !== 0 && n % 5 !== 0 ){
+    return n;
+  }
+  else if(n % 3 === 0){
+    return "fizz";
+  }
+   
+
 }
