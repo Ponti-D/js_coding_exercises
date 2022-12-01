@@ -135,6 +135,7 @@ export function getMeanScore(scores) {
 export function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error("n is required");
   // Add your code here!
+  //if n is devided by 3 using % modulo opeation
   if(n % 3 === 0 && n % 5 === 0){
     return "fizzbuzz";
   }
