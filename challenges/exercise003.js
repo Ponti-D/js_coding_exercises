@@ -61,7 +61,7 @@ export function duplicateNumbers(arr1, arr2) {
 
   //using the filter() u can find the duplicates
   const duplicateValues =  arr1.filter(value => arr2.includes(value)).sort(); 
-
+  //filter out indexes with duplciate values 
   const duplicateValueDistinct = duplicateValues.filter((value, index) => {
       return duplicateValues.indexOf(value) === index})
   
