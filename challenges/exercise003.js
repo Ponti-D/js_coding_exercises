@@ -58,4 +58,13 @@ export function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
   // Your code here!
+
+  //using the filter() u can find the duplicates
+  const duplicateValues =  arr1.filter(value => arr2.includes(value)).sort(); 
+
+  const duplicateValueDistinct = duplicateValues.filter((value, index) => {
+      return duplicateValues.indexOf(value) === index})
+  
+  return duplicateValueDistinct;
+
 }
