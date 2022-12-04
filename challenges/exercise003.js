@@ -28,11 +28,10 @@ export function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
   // Your code here!
 
-  let stringPeople = JSON.stringify(people) ;
-  let jsonPeople =  JSON.parse(stringPeople);
   let countSubjects=0;
+
   //go through each element to count the subjects length and add them 
-  jsonPeople.forEach(element => {
+  people.forEach(element => {
     countSubjects = countSubjects + element.subjects.length;
   }); 
   return countSubjects;
@@ -42,15 +41,13 @@ export function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
   // Your code here!
-  let stringMenu = JSON.stringify(menu) ;
-  let jsonIngredients =  JSON.parse(stringMenu);
- 
-  //this is a fundtion to find the ingredient,
-  //using some() and include 
-  const ingredientExists = value => jsonIngredients.some(menu =>
-        menu.ingredients.includes(value));
 
-  //console.log(ingredientExists(ingredient));  
+  //this is a text to pass in as fundtion to find the ingredient,
+  //using some() and include 
+  const ingredientExists = value => menu.some(menu =>
+        menu.ingredients.includes(value)
+  );
+
   return ingredientExists(ingredient);   
 }
 
@@ -61,6 +58,7 @@ export function duplicateNumbers(arr1, arr2) {
 
   //using the filter() u can find the duplicates
   const duplicateValues =  arr1.filter(value => arr2.includes(value)).sort(); 
+  
   //filter out indexes with duplciate values 
   const duplicateValueDistinct = duplicateValues.filter((value, index) => {
       return duplicateValues.indexOf(value) === index})

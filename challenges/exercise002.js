@@ -1,9 +1,9 @@
 export function getFillings(sandwich) {
   if (sandwich === undefined) throw new Error("ingredients is required");
   // Your code here!
-  let fillings= JSON.stringify(sandwich.fillings);
-  fillings=JSON.parse(fillings); //to get array of fillings
-  return fillings;
+  
+  //to get array of fillings
+  return  sandwich.fillings;
 }
 
 export function isFromManchester(person) {
