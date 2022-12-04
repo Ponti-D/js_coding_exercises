@@ -1,6 +1,10 @@
 import {
     sumMultiples,
     isValidDNA,
+    getComplementaryDNA,
+    isItPrime,
+    createMatrix,
+
 } from "../challenges/exercise006";
 
 describe("sumMultiples", () => {
@@ -21,3 +25,31 @@ describe("isValidDNA", () => {
     });
 });
 
+describe("getComplementaryDNA", () =>{
+    test("return a string of the complementary base pairs. In DNA,, T always pairs with A, and C always pairs with G", ()=> {
+        const str ="CTGA";
+        expect(getComplementaryDNA(str)).toEqual("TGAC");
+    });
+});
+
+describe("isItPrime", () =>{
+    test("This function should receive a number and return true/false depending on whether it is a prime number or not. A prime number is a number that can only be divided evenly by 1 and itself (for example, 7)", ()=> {     
+        expect(isItPrime(7)).toBe(true);
+        expect(isItPrime(6)).toBe(false);
+    });
+ 
+});
+describe("createMatrix", () =>{
+    test("return an array of n arrays, each filled with n items", ()=> {  
+        expect(createMatrix(3, "foo")).toEqual([["foo", "foo", "foo"],["foo", "foo", "foo"],["foo", "foo", "foo"]]);
+        expect(createMatrix(5, "red")).toEqual(
+        [
+            ["red", "red", "red", "red", "red"],
+            ["red", "red", "red", "red", "red"],
+            ["red", "red", "red", "red", "red"],
+            ["red", "red", "red", "red", "red"],
+            ["red", "red", "red", "red", "red"]
+        ]);    
+    });
+});
+ 

@@ -39,6 +39,20 @@ export const isValidDNA = (str) => {
  */
 export const getComplementaryDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
+
+  //if this function receive a valid string
+  //assumption: str will have one of each T,G,A,C??
+
+  const strArr = str.split("");
+ 
+  //below lines could be better? 
+  let validDNAPairs=strArr.find((element) => element ==='T');
+  validDNAPairs += strArr.find((element) => element ==='G');
+  validDNAPairs += strArr.find((element) => element ==='A');
+  validDNAPairs += strArr.find((element) => element === 'C');
+
+  return validDNAPairs;
+
 };
 
 /**
@@ -47,11 +61,23 @@ export const getComplementaryDNA = (str) => {
  * @returns {Boolean}
  */
 export const isItPrime = (n) => {
+
   if (n === undefined) throw new Error("n is required");
+
+  if(n > 2){
+    for(let i= 2; i< n ; i++){
+      if(n % i === 0){
+        return false; //if 2 can devide n then n is not a prime return false at this point
+      }  
+    }
+   return true; 
+  }
+ 
 };
 
 /**
- * This function should receive a number and return an array of n arrays, each filled with n items. The parameter "fill" should be used as the filler of the arrays. For example, given parameters 3 and "foo" the resulting matrix should be:
+ * This function should receive a number and return an array of n arrays, each filled with n items. The parameter "fill" should be used as the filler of the arrays. For example, 
+ * given parameters 3 and "foo" the resulting matrix should be:
  * [
  *   ["foo", "foo", "foo"],
  *   ["foo", "foo", "foo"],
@@ -64,6 +90,19 @@ export const isItPrime = (n) => {
 export const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
+  
+  // array [[fill] n,[fill]n,[fill]n] do this n times
+  let matrix = [];
+
+  for (let l =0 ; l < n; l++ ){
+    let nLine = []; // create fill = n before assign to matrix
+    for(let f = 0 ; f <n ; f++){
+      nLine[f] = fill;
+    }
+    matrix[l]  = nLine; //
+  }
+  return matrix;
+  
 };
 
 /**
