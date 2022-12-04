@@ -6,6 +6,16 @@
  */
 export const sumMultiples = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
+  
+  let sumOfNumber=0;
+
+  arr.forEach(e => {
+    if(e % 3===0 || e % 5===0){
+      sumOfNumber +=e;
+    }
+  });
+
+  return sumOfNumber;
 };
 
 /**
@@ -15,6 +25,11 @@ export const sumMultiples = (arr) => {
  */
 export const isValidDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
+  const reg = new RegExp(/^[rRcCgGtTaA]+$/);
+  if(str.match(reg)){
+    return true;
+  }else {return false;}
+  
 };
 
 /**
