@@ -4,6 +4,7 @@ import {
     getComplementaryDNA,
     isItPrime,
     createMatrix,
+    areWeCovered,
 
 } from "../challenges/exercise006";
 
@@ -50,6 +51,21 @@ describe("createMatrix", () =>{
             ["red", "red", "red", "red", "red"],
             ["red", "red", "red", "red", "red"]
         ]);    
+    });
+});
+describe("areWeCovered",()=>{
+    const staff = [
+        { name: "Sally", rota: ["Monday", "Tuesday", "Wednesday", "Friday"] },
+        { name: "Pedro", rota: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"] },
+        { name: "John", rota: ["Saturday", "Sunday", "Tuesday"] },
+        { name: "Jane", rota: ["Sunday", "Monday", "Tuesday", "Wednesday"] }
+    ];
+    
+    test("return true if at least 3 staff members are scduled for a give day", ()=>{
+        expect(areWeCovered(staff,"Monday")).toBe(true);
+    });
+    test("return false if less than 3 staff members are scduled for a give day", ()=>{
+        expect(areWeCovered(staff,"Friday")).toBe(false);
     });
 });
  
