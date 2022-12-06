@@ -9,9 +9,9 @@ export const sumMultiples = (arr) => {
   
   let sumOfNumber=0;
 
-  arr.forEach(e => {
-    if(e % 3===0 || e % 5===0){
-      sumOfNumber +=e;
+  arr.forEach(num => {
+    if(num % 3===0 || num % 5===0){
+      sumOfNumber +=num;
     }
   });
 
@@ -25,11 +25,10 @@ export const sumMultiples = (arr) => {
  */
 export const isValidDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
-  const reg = new RegExp(/^[rRcCgGtTaA]+$/);
-  if(str.match(reg)){
-    return true;
-  }else {return false;}
   
+  const reg = new RegExp(/^[rRcCgGtTaA]+$/);
+  return (reg.test(str)) ;
+   
 };
 
 /**
@@ -63,11 +62,11 @@ export const getComplementaryDNA = (str) => {
 export const isItPrime = (n) => {
 
   if (n === undefined) throw new Error("n is required");
-
+  
   if(n > 2){
     for(let i= 2; i< n ; i++){
       if(n % i === 0){
-        return false; //if 2 can devide n then n is not a prime return false at this point
+        return false;  
       }  
     }
    return true; 
@@ -91,15 +90,14 @@ export const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
   
-  // array [[fill] n,[fill]n,[fill]n] do this n times
   let matrix = [];
 
   for (let l =0 ; l < n; l++ ){
-    let nLine = []; // create fill = n before assign to matrix
+    let nLine = [];  
     for(let f = 0 ; f <n ; f++){
       nLine[f] = fill;
     }
-    matrix[l]  = nLine; //
+    matrix[l]  = nLine;  
   }
   return matrix;
   
@@ -120,10 +118,11 @@ export const createMatrix = (n, fill) => {
 export const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+  
   let numberOfStaff=0;
   
-  staff.forEach(element => {
-    if(element.rota.includes(day)){
+  staff.forEach(staff => {
+    if(staff.rota.includes(day)){
       numberOfStaff++;
     }
   });
