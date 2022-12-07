@@ -59,7 +59,7 @@ export const createMatrix = (n, fill) => {
 
   for (let row  =0 ; row < n; row++ ){
     let matrixLine = [];  
-    for(let column  = 0 ; column  <n ; column ++){
+    for(let column  = 0 ; column < n ; column ++){
       matrixLine[column ] = fill ;
     }
     matrix[row]  = matrixLine;  
