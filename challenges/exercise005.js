@@ -17,10 +17,10 @@ export const count1sand0s = (str) => {
   const frequencies = {1:0, 0:0};
   const strSplit = str.split("");
   
-  strSplit.forEach(x => {
-    if(frequencies[x] !==undefined){
+  strSplit.forEach(digit => {
+    if(frequencies[digit] !==undefined){
       
-      frequencies[x]++;
+      frequencies[digit]++;
     }
   });
   return frequencies;
@@ -63,7 +63,7 @@ export const findNeedle = (haystack, searchTerm) => {
   if (searchTerm === undefined) throw new Error("searchTerm is required");
   
   const arrObj = Object.values(haystack); 
-  const findWords =  (element) => (typeof element === 'string') && element.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase());
+  const findWords =  (word) => (typeof word === 'string') && word.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase());
   return arrObj.some(findWords);
 
 };
@@ -72,27 +72,23 @@ export const getWordFrequencies = (str) => {
   if (str === undefined) throw new Error("str is required");
 
   const frequencies = {};
-  const strSplit = str.split(" ");
-  console.log(strSplit);
+  const strSplit = str.toLowerCase().split(" ");
  
-  strSplit.forEach(x => { 
+  strSplit.forEach(word => { 
      
-    const reg = new RegExp(/^[a-zA-Z]/); 
-    
-    x= x.toLowerCase();
+    const regExCharsOnly = new RegExp(/^[a-zA-Z]/); 
 
-    let oddChar=x.substring((x.length-1));
+    let oddChar=word.substring((word.length-1));
     
-    if(!reg.test(oddChar)) {
-      x = (x.slice(0, -1));
-      console.log(x);     
+    if(!regExCharsOnly.test(oddChar)) {
+      word= (word.slice(0, -1)); 
     }
 
-    if(frequencies[x] !==undefined){      
-      frequencies[x]++;
+    if(frequencies[word] !==undefined){      
+      frequencies[word]++;
 
     }else{
-      frequencies[x]= 1;
+      frequencies[word]= 1;
     } 
 
   });

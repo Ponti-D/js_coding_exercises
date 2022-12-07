@@ -30,11 +30,8 @@ export function getTotalSubjects(people) {
 export function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
-
-  const ingredientExists = (value) =>
-    menu.some((menu) => menu.ingredients.includes(value));
-
-  return ingredientExists(ingredient);
+  
+  return menu.some((menu) => menu.ingredients.includes(ingredient));
 }
 
 export function duplicateNumbers(arr1, arr2) {
@@ -43,9 +40,5 @@ export function duplicateNumbers(arr1, arr2) {
 
   const duplicateValues = arr1.filter((value) => arr2.includes(value)).sort();
 
-  const duplicateValueDistinct = duplicateValues.filter((value, index) => {
-    return duplicateValues.indexOf(value) === index;
-  });
-
-  return duplicateValueDistinct;
+  return duplicateValues.filter((value, index) => duplicateValues.indexOf(value) === index);
 }

@@ -33,14 +33,14 @@ export function getSalePrice(originalPrice, reduction) {
 export function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
 
-  let totalChars = str.length;
-    
+  const totalChars = str.length;
+  let startAt =0;  
   if(totalChars % 2 == 0) {
-    let startAt = (totalChars/2)+1;       
+     startAt = (totalChars/2)+1;       
     return str.substring(startAt-2, startAt);
   } 
   else {
-    let startAt =Math.round((totalChars/2))-1;
+     startAt =Math.round((totalChars/2))-1;
     return str.substring(startAt,startAt+1);
 
   }
@@ -55,13 +55,13 @@ export function reverseWord(word) {
 export function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
 
-  let newWords = [];
-  words.forEach(element => {
-    let newWord = reverseWord(element);
-    newWords.push(newWord);
+  let reverseWords = [];
+  words.forEach(word => {
+    let newWord = reverseWord(word);
+    reverseWords.push(newWord);
   });
    
-  return newWords;
+  return reverseWords;
 
 }
 
