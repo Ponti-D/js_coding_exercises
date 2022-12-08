@@ -55,13 +55,7 @@ export function reverseWord(word) {
 export function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
 
-  let reverseWords = [];
-  words.forEach(word => {
-    let newWord = reverseWord(word);
-    reverseWords.push(newWord);
-  });
-   
-  return reverseWords;
+  return words.map((word) => reverseWord(word));
 
 }
 
